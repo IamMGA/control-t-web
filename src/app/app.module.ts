@@ -1,3 +1,4 @@
+import { UsersService } from './shared/services/users.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,7 +28,8 @@ import { SignupComponent } from './components/misc/signup/signup.component';
     RouterModule.forRoot(routes)
   ],
   providers: [
-    SessionService
+    SessionService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

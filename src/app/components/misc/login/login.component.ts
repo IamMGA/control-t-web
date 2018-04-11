@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
         loginForm.reset();
         console.log(user);
         this.router.navigate(['/']);
-    
       },
       (error) => {
         this.apiError = error.message;

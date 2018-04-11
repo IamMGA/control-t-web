@@ -8,38 +8,38 @@
         <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email">
       </div>
       <div class="form-group">
-        <input type="string" placeholder="Password" name="password" class="form-control" [(ngModel)]="user.password">
+        <input type="password" placeholder="Password" name="password" class="form-control" [(ngModel)]="user.password">
       </div>
       <div class="form-group">
         <label for="">Sex</label>
         <select name="sex"  class="form-control" [(ngModel)]="user.info.sex">
-          <option value="0" selected>women</option>
-          <option value="1">men</option>
+          <option value="women" selected>women</option>
+          <option value="men">men</option>
         </select>
       </div>
       <div>
         <label for="">Info for TMB</label>
         <div class="form-group">
-          <input type="number" placeholder="Weight" class="form-control" name="weight">
+          <input type="number" placeholder="Weight" class="form-control" name="weight" [(ngModel)]="user.info.weight">
         </div>
         <div class="form-group">
-          <input type="number" placeholder="Stature" class="form-control">
+          <input type="number" placeholder="Stature" class="form-control" name="stature" [(ngModel)]="user.info.stature">
         </div>
         <div class="form-group">
-          <input type="number" placeholder="Age" class="form-control">
+          <input type="number" placeholder="Age" class="form-control" name="age" [(ngModel)]="user.info.age">
         </div>
       </div>
       <div class="form-group">
         <label for="">activity</label>
-        <select name="select" class="form-control">
-          <option value="0" selected>Sedentary</option>
-          <option value="1">light</option>
-          <option value="2">Moderate</option>
-          <option value="3">intense</option>
-          <option value="4">extreme</option>
+        <select name="select" class="form-control" [(ngModel)]="user.info.activity">
+          <option value="sedentary" selected>Sedentary</option>
+          <option value="light">Light</option>
+          <option value="moderate">Moderate</option>
+          <option value="intense">intense</option>
+          <option value="extreme">extreme</option>
         </select>
       </div>
     </div>
-    <button>Submit</button>
+    <button type="submit" class="btn btn-block btn-primary">Submit</button>
   </form>
 </div>

@@ -1,16 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { UsersService } from './../../../shared/services/users.service';
+import { Component} from '@angular/core';
 import { User } from '../../../shared/model/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent{
   user: User = new User();
-  constructor() { }
+  apiError: string;
 
-  ngOnInit() {
-  }
+  constructor(
+    private router: Router,
+    private usersService: UsersService
+  ) {}
 
+  onSubmitSignup(signupForm) {
+    this.usersService.create(this.user).subscribe(
+      (user) => {
+        signupForm.reset();
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log(this.user)
+        this.apiError = error.message;
+      }
+    );
+  } 
 }
