@@ -7,19 +7,28 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/misc/navbar/navbar.component';
 import { routes } from './app.routes';
+import { LoginComponent } from './components/misc/login/login.component';
+import { SessionService } from './shared/services/session.service';
+import { HttpModule } from '@angular/http';
+import { SignupComponent } from './components/misc/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    SessionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

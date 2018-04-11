@@ -8,4 +8,8 @@
   <div *ngIf="!user" class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <a [routerLink]="['/login']" class="nav-link" href="#">Login</a>
   </div>
+  <div *ngIf="user">
+    <h1>{{user.nickName}}</h1>
+    <a (click)="onClickLogout()">Logout</a>
+  </div>
 </nav>

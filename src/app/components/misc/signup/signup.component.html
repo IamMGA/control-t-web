@@ -1,0 +1,45 @@
+<div class="row">
+  <form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm">
+    <div>
+      <div class="form-group">
+        <input type="text" placeholder="Nickname" name="nickname" class="form-control" [(ngModel)]="user.nickname">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email">
+      </div>
+      <div class="form-group">
+        <input type="string" placeholder="Password" name="password" class="form-control" [(ngModel)]="user.password">
+      </div>
+      <div class="form-group">
+        <label for="">Sex</label>
+        <select name="sex"  class="form-control" [(ngModel)]="user.info.sex">
+          <option value="0" selected>women</option>
+          <option value="1">men</option>
+        </select>
+      </div>
+      <div>
+        <label for="">Info for TMB</label>
+        <div class="form-group">
+          <input type="number" placeholder="Weight" class="form-control" name="weight">
+        </div>
+        <div class="form-group">
+          <input type="number" placeholder="Stature" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="number" placeholder="Age" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">activity</label>
+        <select name="select" class="form-control">
+          <option value="0" selected>Sedentary</option>
+          <option value="1">light</option>
+          <option value="2">Moderate</option>
+          <option value="3">intense</option>
+          <option value="4">extreme</option>
+        </select>
+      </div>
+    </div>
+    <button>Submit</button>
+  </form>
+</div>
