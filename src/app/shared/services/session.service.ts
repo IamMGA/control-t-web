@@ -1,6 +1,6 @@
 import { BaseApiService } from './base-api.service';
 import { User } from './../model/user.model';
-import { Http, Headers, RequestOptions, Response } from '@angular/http'
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
@@ -15,7 +15,7 @@ export class SessionService extends BaseApiService {
   private userSubject: Subject<User> = new Subject();
 
   constructor(private http: Http) {
-    super()
+    super();
     this.user = JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
     this.notifyUserChanges();
   }

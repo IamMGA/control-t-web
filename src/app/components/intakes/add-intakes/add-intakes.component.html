@@ -1,0 +1,136 @@
+<!-- <form (ngSubmit)="onSubmitAddMeal(addMealForm)" #addMealForm="ngForm">
+  <label>Add Intake</label>
+  <select [(ngModel)]="meal" #selectMeal="ngModel" name="meal" id="">
+    <option *ngFor="let meal of meals" value="{{ meal.id }}">{{ meal.name }}</option>
+  </select>
+  <div *ngIf="meal">
+    <ul *ngFor="let meal of meals" style="padding: 0">
+      <div *ngIf="meal.id === selectMeal.value">
+        <div style="display:flex; justify-content: space-around">
+          <li style="width: auto; display: inline-block">
+            ServingSize
+          </li>
+          <li style="width: auto; display: inline-block">
+            Calories
+          </li>
+          <li style="width: auto; display: inline-block">
+            Fat
+          </li>
+          <li style="width: auto; display: inline-block">
+            Carbs
+          </li>
+          <li style="width: auto; display: inline-block">
+            Protein
+          </li>
+        </div>
+        <div style="
+        display: flex;
+        justify-content: space-around">
+          <div style="display: inline-block">
+            <li style="width: auto; display: inline-block">
+              {{meal.specNutritions.servingSize}}
+            </li>
+          </div>
+          <div style="display: inline-block">
+            <li style="width: auto; display: inline-block">
+              {{meal.specNutritions.calories}}
+            </li>
+          </div>
+          <div style="display: inline-block">
+            <li style="width: auto; display: inline-block">
+              {{meal.specNutritions.fat}}
+            </li>
+          </div>
+          <div style="display: inline-block">
+            <li style="width: auto; display: inline-block">
+              {{meal.specNutritions.carbs}}
+            </li>
+          </div>
+          <div style="display: inline-block">
+            <li style="width: auto; display: inline-block">
+              {{meal.specNutritions.protein}}
+            </li>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+  <button type="submit">submit</button>
+</form>
+<div>
+  <div>
+    <p>List intakes</p>
+  </div>
+  <div *ngFor="let intake of intakes; let i = index">
+    <div *ngFor="let meal of meals">
+      <p *ngIf="meal.id === intake">
+        {{meal.name}}
+        <span>
+          <button type="button" (click)="removeIntake(i)">
+            <i class="fa fa-minus"></i>
+          </button>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+ -->
+
+<h3 class="first">Add intake</h3>
+<div>
+  <p-dropdown [options]="meals" [(ngModel)]="selectedMeal" placeholder="Select a meal" optionLabel="name" [showClear]="true"
+    filter="true"></p-dropdown>
+</div>
+<div *ngIf="selectedMeal" style="border: 1px solid black">
+  <ul style="border: 1px solid blue; display:flex; justify-content: space-around; padding: 0">
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      ServingSize
+    </li>
+    <li style="width: auto; display: inline-block;border: 1px solid red">
+      Calories
+    </li>
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      Fat
+    </li>
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      Carbs
+    </li>
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      Protein
+    </li>
+  </ul>
+  <ul *ngIf="selectedMeal" style="border: 1px solid blue; display:flex; justify-content: space-around">
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      {{selectedMeal.specNutritions.servingSize}}
+    </li>
+    <li style="width: auto; display: inline-block;border: 1px solid red">
+      {{selectedMeal.specNutritions.calories}}
+    </li>
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      {{selectedMeal.specNutritions.fat}}
+    </li>
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      {{selectedMeal.specNutritions.carbs}}
+    </li>
+    <li style="width: auto; display: inline-block; border: 1px solid red">
+      {{selectedMeal.specNutritions.protein}}
+    </li>
+  </ul>
+  <button type="button" (click)="addMeal(selectedMeal)">Add intake</button>
+</div>
+<div *ngIf="!intakes.meals.length == 0">
+  <h3>List intakes</h3>
+  <div *ngFor="let intake of intakes.meals; let i = index">
+    <div *ngFor="let meal of meals">
+      <p *ngIf="meal.id === intake">
+        {{meal.name}}
+        <span>
+          <button type="button" (click)="removeIntake(i)">
+            <i class="fa fa-minus"></i>
+          </button>
+        </span>
+      </p>
+    </div>
+  </div>
+  <button type="button" (click)="submitList()">Submit list</button>
+</div>

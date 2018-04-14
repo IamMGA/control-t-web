@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   user: User = new User();
   apiError: string;
-  
+
   constructor(
     private sessionService: SessionService,
     private router: Router

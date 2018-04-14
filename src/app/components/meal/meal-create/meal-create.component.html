@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmitMeal(mealCreateForm)" #createMeal="ngForm">
+  <div>
+    <input type="text" placeholder="Name" name="name" [(ngModel)]="meal.name">
+  </div>
+  <div>
+    <input type="text" placeholder="Serving size" name="servingSize" [(ngModel)]="meal.specNutritions.servingSize">
+  </div>
+  <div>
+    <input type="text" placeholder="Calories" name="calories" [(ngModel)]="meal.specNutritions.calories">
+  </div>
+  <div>
+    <input type="text" placeholder="fat" name="fat" [(ngModel)]="meal.specNutritions.fat">
+  </div>
+  <div>
+    <input type="text" placeholder="carbs" name="carbs" [(ngModel)]="meal.specNutritions.carbs">
+  </div>
+  <div>
+    <input type="text" placeholder="protein" name="protein" [(ngModel)]="meal.specNutritions.protein">
+  </div>
+  <div>
+    <input type="text" placeholder="sugar" name="sugar" [(ngModel)]="meal.specNutritions.others.sugar">
+  </div>
+  <div>
+    <input type="text" placeholder="cholesterol" name="cholesterol" [(ngModel)]="meal.specNutritions.others.cholesterol">
+  </div>
+  <div>
+    <input type="text" placeholder="caffeine" name="caffeine" [(ngModel)]="meal.specNutritions.others.caffeine">
+  </div>
+  <button type="submit" class="btn btn-block btn-primary"> submit</button>
+</form>

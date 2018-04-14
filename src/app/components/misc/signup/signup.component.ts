@@ -1,5 +1,5 @@
 import { UsersService } from './../../../shared/services/users.service';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { User } from '../../../shared/model/user.model';
 import { Router } from '@angular/router';
 
@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent{
+export class SignupComponent {
   user: User = new User();
   apiError: string;
 
   constructor(
     private router: Router,
     private usersService: UsersService
-  ) {}
+  ) { }
 
   onSubmitSignup(signupForm) {
     this.usersService.create(this.user).subscribe(
@@ -24,9 +24,8 @@ export class SignupComponent{
         this.router.navigate(['/login']);
       },
       (error) => {
-        console.log(this.user)
         this.apiError = error.message;
       }
     );
-  } 
+  }
 }

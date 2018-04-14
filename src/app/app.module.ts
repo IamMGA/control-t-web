@@ -1,3 +1,5 @@
+import { IntakesService } from './shared/services/intakes.service';
+import { MealService } from './shared/services/meal.service';
 import { UsersService } from './shared/services/users.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,24 +14,32 @@ import { LoginComponent } from './components/misc/login/login.component';
 import { SessionService } from './shared/services/session.service';
 import { HttpModule } from '@angular/http';
 import { SignupComponent } from './components/misc/signup/signup.component';
+import { MealCreateComponent } from './components/meal/meal-create/meal-create.component';
+import { AddIntakesComponent } from './components/intakes/add-intakes/add-intakes.component';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MealCreateComponent,
+    AddIntakesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    DropdownModule,
     RouterModule.forRoot(routes)
   ],
   providers: [
     SessionService,
-    UsersService
+    UsersService,
+    MealService,
+    IntakesService
   ],
   bootstrap: [AppComponent]
 })

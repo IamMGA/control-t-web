@@ -1,4 +1,4 @@
-import { UserDetails } from "./user-details.model";
+import { UserDetails } from './user-details.model';
 export class User {
     id: string;
     email: string;
