@@ -17,4 +17,10 @@ export class IntakesService extends BaseApiService {
       .map((res: Response) => res.json())
       .catch(error => this.handleError(error));
   }
+
+  removeIntakes(id: Object): Observable<Intakes> {
+    return this.http.delete(IntakesService.INTAKES_API + `/${id}`, BaseApiService.defaultOptions)
+      .map((res: Response) => res.json())
+      .catch(error => this.handleError(error));
+  }
 }

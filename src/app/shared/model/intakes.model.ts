@@ -1,3 +1,3 @@
 export class Intakes {
-  meals: Array<string> = [];
+  meal: string;
 }

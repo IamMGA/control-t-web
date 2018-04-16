@@ -1,5 +1,4 @@
-import { Intakes } from './../../../shared/model/intakes.model';
-import { Subscription } from 'rxjs/Rx';
+import { Subscription, Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { IntakesService } from './../../../shared/services/intakes.service';
 import { MealService } from './../../../shared/services/meal.service';
@@ -14,8 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddIntakesComponent implements OnInit {
   apiError: string;
   meals: Array<Meal> = [];
-  intakes: Intakes = new Intakes();
-  // intake: string;
+  intakes: Array<any> = [];
+
 
   constructor(
     private router: Router,
@@ -29,24 +28,22 @@ export class AddIntakesComponent implements OnInit {
   }
 
   addMeal(selectedMeal) {
-    // console.log(selectedMeal);
-    // this.intake = Object.values(addMealForm.value).toString();
-    // this.intakes.push(this.intake);
-    // this.intakes.push(Object.values(addMealForm.value).toString());
-    this.intakes.meals.push(selectedMeal.id);
-    console.log(selectedMeal)
-    // console.log(addMealForm.value);
-    // console.log(this.intakes);
-    // console.log(this.intakes);
-    // console.log(this.intakes);
-  }
-  removeIntake(i) {
-    this.intakes.meals.splice(i, 1);
+    console.log(this.intakes);
+    this.intakesService.addIntake({ meal: selectedMeal.id }).subscribe(
+      (meal) => {
+        this.intakes.push(meal);
+        this.router.navigate(['/intakes']);
+      },
+      (error) => {
+        this.apiError = error.message;
+      }
+    );
   }
 
-  submitList() {
-    this.intakesService.addIntake({meals: this.intakes.meals}).subscribe(
-      (meals) => {
+  removeIntake(i) {
+    this.intakesService.removeIntakes(this.intakes[i].id).subscribe(
+      (meal) => {
+        this.intakes.splice(i, 1);
         this.router.navigate(['/intakes']);
       },
       (error) => {

@@ -16,7 +16,7 @@ import { HttpModule } from '@angular/http';
 import { SignupComponent } from './components/misc/signup/signup.component';
 import { MealCreateComponent } from './components/meal/meal-create/meal-create.component';
 import { AddIntakesComponent } from './components/intakes/add-intakes/add-intakes.component';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
