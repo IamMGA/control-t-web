@@ -1,3 +1,5 @@
+import { User } from './../../../shared/model/user.model';
+import { SessionService } from './../../../shared/services/session.service';
 import { Subscription, Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { IntakesService } from './../../../shared/services/intakes.service';
@@ -14,12 +16,13 @@ export class AddIntakesComponent implements OnInit {
   apiError: string;
   meals: Array<Meal> = [];
   intakes: Array<any> = [];
-
+  user: User;
 
   constructor(
     private router: Router,
     private intakesService: IntakesService,
-    private mealService: MealService
+    private mealService: MealService,
+    private sessionService: SessionService
   ) { }
 
   ngOnInit() {
@@ -28,7 +31,8 @@ export class AddIntakesComponent implements OnInit {
   }
 
   addMeal(selectedMeal) {
-    console.log(this.intakes);
+    this.user = this.sessionService.getUser();
+    console.log(this.user)
     this.intakesService.addIntake({ meal: selectedMeal.id }).subscribe(
       (meal) => {
         this.intakes.push(meal);

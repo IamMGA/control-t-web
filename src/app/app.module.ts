@@ -17,6 +17,7 @@ import { SignupComponent } from './components/misc/signup/signup.component';
 import { MealCreateComponent } from './components/meal/meal-create/meal-create.component';
 import { AddIntakesComponent } from './components/intakes/add-intakes/add-intakes.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DropdownModule } from 'primeng/dropdown';
     LoginComponent,
     SignupComponent,
     MealCreateComponent,
-    AddIntakesComponent
+    AddIntakesComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

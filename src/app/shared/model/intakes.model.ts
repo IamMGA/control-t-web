@@ -1,3 +1,7 @@
+import { Meal } from './meal.model';
+
 export class Intakes {
-  meal: string;
+  meal: Meal = new Meal();
+  user: string;
+  id: string;
 }

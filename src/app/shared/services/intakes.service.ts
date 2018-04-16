@@ -23,4 +23,10 @@ export class IntakesService extends BaseApiService {
       .map((res: Response) => res.json())
       .catch(error => this.handleError(error));
   }
+
+  intakeList():Observable<Array<Intakes>>{
+    return this.http.get(IntakesService.INTAKES_API, BaseApiService.defaultOptions)
+      .map(res => res.json())
+      .catch(error => this.handleError(error));
+  }
 }

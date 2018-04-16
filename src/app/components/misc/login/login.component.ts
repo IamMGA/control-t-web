@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     this.sessionService.authenticate(this.user).subscribe(
       (user) => {
         loginForm.reset();
-        console.log(user);
         this.router.navigate(['/']);
       },
       (error) => {
