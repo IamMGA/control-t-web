@@ -9,6 +9,16 @@
       margin: 0 auto;
       &--chart{
         justify-content: space-around;
+        :nth-child(1){
+          background-color: #36A2EB;
+        }
+        :nth-child(2){
+          background-color: #FF6384;
+          margin: 0 5px;
+        }
+        :nth-child(3){
+          background-color: #FFCE56;
+        }
       }
       &--intakes{
         justify-content: space-between;
@@ -18,6 +28,22 @@
     &-item {
       display: inline-block;
       font-size: 1.2rem;
+      &--chartdata{
+        width: calc(100%/3);
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      &--percent{
+        width: calc(100%/3);
+        text-align: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        &::after{
+          content: '%';
+        }
+      }
     }
   }
 }

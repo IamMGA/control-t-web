@@ -27,25 +27,7 @@ export class StatsComponent implements OnInit {
     private sessionService: SessionService,
     private intakesService: IntakesService,
     private router: Router
-  ) {
-    // this.data = {
-    //   labels: ['A','B','C'],
-    //   datasets: [
-    //       {
-    //           data: [this.tCarbs, this.tFat, this.tProteins],
-    //           backgroundColor: [
-    //               "#FF6384",
-    //               "#36A2EB",
-    //               "#FFCE56"
-    //           ],
-    //           hoverBackgroundColor: [
-    //               "#FF6384",
-    //               "#36A2EB",
-    //               "#FFCE56"
-    //           ]
-    //       }]    
-    //   };
-  }
+  ) {}
 
   ngOnInit() {
     this.user = this.sessionService.getUser();
@@ -100,17 +82,18 @@ export class StatsComponent implements OnInit {
             "#FF6384",
             "#36A2EB",
             "#FFCE56"
-          ],
-          hoverBackgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56"
           ]
+          // hoverBackgroundColor: [
+          //   "#FF6384",
+          //   "#36A2EB",
+          //   "#FFCE56"
+          // ]
         }]
     };
     this.options = {
       legend: {
-        position: 'right'
+        position: 'right',
+        display: false
       }
     };
   }

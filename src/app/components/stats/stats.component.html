@@ -1,25 +1,17 @@
 <p>Day calories: {{ user.calories }}</p>
-<button type="button" (click)="dale()">funcionará?</button>
 
-<!-- prueba de retornos -->
 
-<p>fat: {{tFat}}</p>
-<p>carbs: {{tCarbs}}</p>
-<p>proteins: {{tProteins}}</p>
-<p>sugar: {{tSugar}}</p>
-
-<!-- borrar al interactuar -->
 <div class="stats__chart">
   <p-chart type="pie" [data]="data" [options]="options"></p-chart>
   <ul class="stats__list stats__list-content stats__list-content--chart">
-    <li class="stats__list-item">fat: {{tFat}}</li>
-    <li class="stats__list-item">carbs: {{tCarbs}}</li>
-    <li class="stats__list-item">fat: {{tProteins}}</li>
+    <li class="stats__list-item stats__list-item--chartdata">fat: {{tFat}}</li>
+    <li class="stats__list-item stats__list-item--chartdata">carbs: {{tCarbs}}</li>
+    <li class="stats__list-item stats__list-item--chartdata">fat: {{tProteins}}</li>
   </ul>
   <ul class="stats__list stats__list-content stats__list-content--chart">
-    <li class="stats__list-item">{{ tFat + tCarbs + tProteins / 3 }}</li>
-    <li class="stats__list-item">carbs: {{tCarbs}}</li>
-    <li class="stats__list-item">fat: {{tProteins}}</li>
+    <li class="stats__list-item stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tFat }}</li>
+    <li class="stats__list-item stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tCarbs }}</li>
+    <li class="stats__list-item stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tProteins }}</li>
   </ul>
 </div>
 

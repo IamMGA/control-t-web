@@ -19,6 +19,7 @@ import { AddIntakesComponent } from './components/intakes/add-intakes/add-intake
 import { DropdownModule } from 'primeng/dropdown';
 import { StatsComponent } from './components/stats/stats.component';
 import { ChartModule } from 'primeng/chart';
+import { PercentPipe } from './pipes/percent.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ChartModule } from 'primeng/chart';
     SignupComponent,
     MealCreateComponent,
     AddIntakesComponent,
-    StatsComponent
+    StatsComponent,
+    PercentPipe
   ],
   imports: [
     BrowserModule,
