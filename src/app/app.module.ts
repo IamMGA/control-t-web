@@ -18,6 +18,7 @@ import { MealCreateComponent } from './components/meal/meal-create/meal-create.c
 import { AddIntakesComponent } from './components/intakes/add-intakes/add-intakes.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { StatsComponent } from './components/stats/stats.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { StatsComponent } from './components/stats/stats.component';
     HttpModule,
     BrowserAnimationsModule,
     DropdownModule,
+    ChartModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

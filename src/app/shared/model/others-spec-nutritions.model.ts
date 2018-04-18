@@ -1,5 +1,5 @@
 export class OthersSpecNutritions {
-  sugar: number;
-  cholesterol: number;
-  caffeine: number;
+  sugar?: number;
+  cholesterol?: number;
+  caffeine?: number;
 }

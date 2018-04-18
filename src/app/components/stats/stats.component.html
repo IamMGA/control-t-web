@@ -1,5 +1,36 @@
-<p>
-  stats works!
-</p>
 <p>Day calories: {{ user.calories }}</p>
 <button type="button" (click)="dale()">funcionará?</button>
+
+<!-- prueba de retornos -->
+
+<p>fat: {{tFat}}</p>
+<p>carbs: {{tCarbs}}</p>
+<p>proteins: {{tProteins}}</p>
+<p>sugar: {{tSugar}}</p>
+
+<!-- borrar al interactuar -->
+<div class="stats__chart">
+  <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+  <ul class="stats__list stats__list-content stats__list-content--chart">
+    <li class="stats__list-item">fat: {{tFat}}</li>
+    <li class="stats__list-item">carbs: {{tCarbs}}</li>
+    <li class="stats__list-item">fat: {{tProteins}}</li>
+  </ul>
+  <ul class="stats__list stats__list-content stats__list-content--chart">
+    <li class="stats__list-item">{{ tFat + tCarbs + tProteins / 3 }}</li>
+    <li class="stats__list-item">carbs: {{tCarbs}}</li>
+    <li class="stats__list-item">fat: {{tProteins}}</li>
+  </ul>
+</div>
+
+<h3 class="stats__title">Diray intakes</h3>
+<ul class="stats__list">
+  <div class="stats__list-content stats__list-content--intakes" *ngFor="let intake of intakes; let i = index">
+    <li class="stats__list-item"> {{ intake.meal.name }} </li>
+    <li class="stats__list-item">
+      <button (click)="removeIntake(i)">
+        <i class="fa fa-trash-o"></i>
+      </button>
+    </li>
+  </div>
+</ul>

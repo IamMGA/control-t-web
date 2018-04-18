@@ -1,3 +1,4 @@
+import { Intakes } from './../../../shared/model/intakes.model';
 import { User } from './../../../shared/model/user.model';
 import { SessionService } from './../../../shared/services/session.service';
 import { Subscription, Observable } from 'rxjs/Rx';
@@ -15,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddIntakesComponent implements OnInit {
   apiError: string;
   meals: Array<Meal> = [];
-  intakes: Array<any> = [];
+  intakes: Array<Intakes> = [];
   user: User;
 
   constructor(
@@ -33,6 +34,7 @@ export class AddIntakesComponent implements OnInit {
   addMeal(selectedMeal) {
     this.user = this.sessionService.getUser();
     console.log(this.user)
+    console.log(this.intakes);
     this.intakesService.addIntake({ meal: selectedMeal.id }).subscribe(
       (meal) => {
         this.intakes.push(meal);

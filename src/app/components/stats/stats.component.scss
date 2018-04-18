@@ -1,0 +1,23 @@
+.stats {
+  &__title {
+    text-align: center;
+  }
+  &__list {
+    padding: 0px;
+    &-content {
+      display: flex;
+      margin: 0 auto;
+      &--chart{
+        justify-content: space-around;
+      }
+      &--intakes{
+        justify-content: space-between;
+        width: calc(100%/1.2);
+      }
+    }
+    &-item {
+      display: inline-block;
+      font-size: 1.2rem;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { StatsComponent } from './components/stats/stats.component';
 import { AddIntakesComponent } from './components/intakes/add-intakes/add-intakes.component';
 import { MealCreateComponent } from './components/meal/meal-create/meal-create.component';
 import { Component } from '@angular/core';
@@ -10,5 +11,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'meals', component:  MealCreateComponent },
-    { path: 'intakes', component: AddIntakesComponent }
+    { path: 'intakes', component: AddIntakesComponent },
+    { path: 'stats', component: StatsComponent }
 ];
