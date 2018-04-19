@@ -1,7 +1,11 @@
-<p>Day calories: {{ user.calories }}</p>
+<div>
+  <h2>Daily calories needed to maintain weight</h2>
+  <p>{{ user.calories }}</p>
+</div>
 
 
-<div class="stats__chart">
+
+<div *ngIf="intakes.length > 0" class="stats__chart">
   <p-chart type="pie" [data]="data" [options]="options"></p-chart>
   <ul class="stats__list stats__list-content stats__list-content--chart">
     <li class="stats__list-item stats__list-item--chartdata">fat: {{tFat}}</li>
@@ -15,7 +19,7 @@
   </ul>
 </div>
 
-<h3 class="stats__title">Diray intakes</h3>
+<h3 *ngIf="intakes.length > 0" class="stats__title">Diray intakes</h3>
 <ul class="stats__list">
   <div class="stats__list-content stats__list-content--intakes" *ngFor="let intake of intakes; let i = index">
     <li class="stats__list-item"> {{ intake.meal.name }} </li>

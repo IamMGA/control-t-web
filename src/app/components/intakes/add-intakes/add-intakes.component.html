@@ -40,7 +40,7 @@
   </ul>
   <button type="button" (click)="addMeal(selectedMeal)">Add intake</button>
 </div>
-<div *ngIf="!intakes.length == 0">
+<div *ngIf="intakes.length > 0">
   <h3>List intakes</h3>
   <div *ngFor="let intake of intakes; let i = index">
     <div *ngFor="let meal of meals">

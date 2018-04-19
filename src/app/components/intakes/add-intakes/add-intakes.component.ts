@@ -18,6 +18,7 @@ export class AddIntakesComponent implements OnInit {
   meals: Array<Meal> = [];
   intakes: Array<Intakes> = [];
   user: User;
+  selectedMeal;
 
   constructor(
     private router: Router,
