@@ -1,17 +1,27 @@
-<div class="row">
-  <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
-    <div class="form-group">
-      <div>
-        <input type="email" name="email" class="form-control" placeholder="Enter email" [(ngModel)]="user.email" #email="ngModel"
-          required>
-      </div>
+<div class="login">
+  <div class="row">
+    <div class="login__card">
+      <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm" class="login__form">
+        <fieldset class="login__fieldset">
+          <div class="col-12">
+              <label class="login__label" for="">
+                <input type="email" name="email" class="login__input" placeholder="Enter email" [(ngModel)]="user.email" #email="ngModel"
+                required>
+              </label>
+          </div>
+          <div class="col-12">
+            <label class="login__label" for="">
+              <input type="password" name="password" class="login__input" placeholder="Password" [(ngModel)]="user.password" #password="ngModel"
+                required>
+            </label>
+          </div>
+        </fieldset>
+        <div class="col-12">
+          <div class="login__btn-content">
+            <button type="submit" class="login__btn" [disabled]="!loginForm.valid">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <div>
-        <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" #password="ngModel"
-          required>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-block btn-primary" [disabled]="!loginForm.valid">Submit</button>
-  </form>
+  </div>  
 </div>
