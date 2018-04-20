@@ -1,0 +1,65 @@
+<div>
+  <form [formGroup]="profile" (ngSubmit)="submitProfile()">
+    <div>
+      <input type="text" placeholder="Nickname" name="nickname" formControlName="nickname">
+      <div *ngIf="profile.controls['nickname'].errors?.required">
+        <p>Nickname is necessary</p>
+      </div>
+      <div *ngIf="profile.controls['nickname'].errors?.minlength">
+        <p>Min 3 letters</p>
+      </div>
+    </div>
+    <div formGroupName="info">
+      <div>
+        <label for="">Sex</label>
+        <select name="sex" formControlName="sex">
+          <option value="women" selected>women</option>
+          <option value="men">men</option>
+        </select>
+        <div *ngIf="!profile.get('info.sex').valid">
+          <p>Sex is necessary</p>
+        </div>
+      </div>
+
+      <label>Info for TMB</label>
+
+      <div>
+        <input type="number" placeholder="Weight" name="weight" formControlName="weight">
+        <div *ngIf="!profile.get('info.weight').valid">
+          <p>Weight is necessary</p>
+        </div>
+      </div>
+
+      <div>
+        <input type="number" placeholder="Stature" name="stature" formControlName="stature">
+        <div *ngIf="!profile.get('info.stature').valid">
+          <p>Stature is necessary</p>
+        </div>
+      </div>
+
+      <div>
+        <input type="number" placeholder="Age" name="age" formControlName="age">
+        <div *ngIf="!profile.get('info.age').valid">
+          <p>Stature is necessary</p>
+        </div>
+      </div>
+
+      <div>
+        <label>activity</label>
+        <select name="activity" formControlName="activity">
+          <option value="sedentary">Sedentary</option>
+          <option value="light">Light</option>
+          <option value="moderate">Moderate</option>
+          <option value="intense">intense</option>
+          <option value="extreme">extreme</option>
+        </select>
+        <div *ngIf="!profile.get('info.activity').valid">
+          <p>Activity is necessary</p>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-block btn-primary">Submit</button>
+  </form>
+</div>
+
+{{profile.valid}}

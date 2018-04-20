@@ -4,7 +4,7 @@ import { UsersService } from './shared/services/users.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { StatsComponent } from './components/stats/stats.component';
 import { ChartModule } from 'primeng/chart';
 import { PercentPipe } from './pipes/percent.pipe';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { PercentPipe } from './pipes/percent.pipe';
     MealCreateComponent,
     AddIntakesComponent,
     StatsComponent,
-    PercentPipe
+    PercentPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { PercentPipe } from './pipes/percent.pipe';
     BrowserAnimationsModule,
     DropdownModule,
     ChartModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [
     SessionService,
