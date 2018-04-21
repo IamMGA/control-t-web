@@ -18,4 +18,10 @@ export class UsersService extends BaseApiService {
       .catch(error => this.handleError(error));
   }
 
+  editProfile(user: User): Observable<User> {
+    return this.http.put(UsersService.USERS_API, JSON.stringify(user), BaseApiService.defaultOptions)
+      .map(res => res.json())
+      .catch(error => this.handleError(error));
+  }
+
 }

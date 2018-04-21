@@ -1,3 +1,4 @@
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 import { IntakesService } from './shared/services/intakes.service';
 import { MealService } from './shared/services/meal.service';
 import { UsersService } from './shared/services/users.service';
@@ -5,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/misc/navbar/navbar.component';
@@ -49,7 +50,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     SessionService,
     UsersService,
     MealService,
-    IntakesService
+    IntakesService,
+    IsAuthenticatedGuard
   ],
   bootstrap: [AppComponent]
 })

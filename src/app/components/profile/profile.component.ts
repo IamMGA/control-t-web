@@ -1,7 +1,9 @@
-import { User } from './../../shared/model/user.model';
 import { SessionService } from './../../shared/services/session.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { User } from './../../shared/model/user.model';
+import { UsersService } from './../../shared/services/users.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-profile',
@@ -9,32 +11,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  user: User
-  profile: FormGroup;
+  user: User;
+  apiError: string;
+ 
 
-  constructor(private sessionService: SessionService) { 
-  }
+  constructor(
+    private sessionService: SessionService,
+    private usersService: UsersService,
+    private router : Router
+  ){ }
   
   ngOnInit() {
     this.user = this.sessionService.getUser();
-    this.profile = new FormGroup({
-      'nickname': new FormControl(this.user.nickname, [
-                                        Validators.required,
-                                        Validators.minLength(3)
-                                      ]),
-      'info': new FormGroup({
-        'sex': new FormControl(this.user.info.sex, Validators.required),
-        'weight': new FormControl(this.user.info.weight, Validators.required),
-        'stature': new FormControl(this.user.info.stature, Validators.required),
-        'age': new FormControl(this.user.info.age, Validators.required),
-        'activity': new FormControl(this.user.info.activity, Validators.required)
-      })
-    })
   }
   
-  submitProfile(){
-    console.log(this.profile)
-    console.log(this.user)
+  onSubmitProfile(editProfile){
+    this.usersService.editProfile(this.user).subscribe(
+      (profile)=>{
+        this.router.navigate(['/login']);
+      },
+      (error)=>{
+        this.apiError = error.message;
+      }
+    )
   }
 
 }
