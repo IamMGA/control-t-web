@@ -6,58 +6,82 @@
         <form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm" class="signup__form">
           <fieldset class="signup__fieldset">
             <div class="col-12">
-              <legend class="signup__legend">Ingresa a continuaci&oacute;n tus datos personales</legend>
+              <legend class="signup__legend">Enter your personal data below</legend>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label" for="">
-                <input type="text" placeholder="Nickname" name="nickname" class="signup__input" [(ngModel)]="user.nickname">
+              <label class="signup__label" for="nickname">
+                <input type="text" placeholder="Nickname" name="nickname" class="signup__input" [(ngModel)]="user.nickname" #nickname="ngModel" required>
+                <div *ngIf="nickname.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label" for="">
-                <input type="text" placeholder="Email" name="email" class="signup__input" [(ngModel)]="user.email">
+              <label class="signup__label" for="email">
+                <input type="text" placeholder="Email" name="email" class="signup__input" [(ngModel)]="user.email" #email="ngModel" required>
+                <div *ngIf="email.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label" for="">
-                <input type="password" placeholder="Password" name="password" class="signup__input" [(ngModel)]="user.password">
+              <label class="signup__label" for="password">
+                <input type="password" placeholder="Password" name="password" class="signup__input" [(ngModel)]="user.password" #password="ngModel" required >
+                <div *ngIf="password.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label"  for="">
+              <label class="signup__label"  for="sex">
                 <p class="signup__txt">Sex</p>
-                <select name="sex" class="signup__input signup__input-select" [(ngModel)]="user.info.sex">
+                <select name="sex" class="signup__input signup__input-select" [(ngModel)]="user.info.sex" #sex="ngModel" required>
                   <option value="women" selected>women</option>
                   <option value="men">men</option>
                 </select>
+                <div *ngIf="sex.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label"  for="">
+              <label class="signup__label"  for="weight">
                 <p class="signup__txt">Info for TMB</p>
-                <input type="number" placeholder="Weight" class="signup__input" name="weight" [(ngModel)]="user.info.weight">
+                <input type="number" placeholder="Weight" class="signup__input" name="weight" [(ngModel)]="user.info.weight" #weight="ngModel" required>
+                <div *ngIf="weight.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label"  for="">
-                <input type="number" placeholder="Stature" class="signup__input" name="stature" [(ngModel)]="user.info.stature">
+              <label class="signup__label"  for="stature">
+                <input type="number" placeholder="Stature" class="signup__input" name="stature" [(ngModel)]="user.info.stature" #stature="ngModel" required>
+                <div *ngIf="stature.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label"  for="">
-                <input type="number" placeholder="Age" class="signup__input" name="age" [(ngModel)]="user.info.age">
+              <label class="signup__label"  for="age">
+                <input type="number" placeholder="Age" class="signup__input" name="age" [(ngModel)]="user.info.age" #age="ngModel" required>
+                <div *ngIf="age.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="signup__label"  for="">
+              <label class="signup__label"  for="select">
                 <p class="signup__txt">Activity</p>
-                <select name="select" class="signup__input signup__input-select" [(ngModel)]="user.info.activity">
+                <select name="select" class="signup__input signup__input-select" [(ngModel)]="user.info.activity" #selected="ngModel" required>
                   <option value="sedentary" selected>Sedentary</option>
                   <option value="light">Light</option>
                   <option value="moderate">Moderate</option>
                   <option value="intense">intense</option>
                   <option value="extreme">extreme</option>
                 </select>
+                <div *ngIf="selected.errors?.required">
+                  <p class="signup__input--error">Invalid required</p>
+                </div>
               </label>
             </div>
           </fieldset>

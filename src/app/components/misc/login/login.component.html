@@ -1,9 +1,8 @@
 <div class="login-page">
   <div class="login__img">
     <div class="login__img-opacity">
-      <h2 class="login__img-title">¿Sabes realmente lo que comes?</h2>
-      <p class="login__img-subtitle">Con nuestra aplicación podrás controlar y llevar un registro de todo lo que consumes en base al estilod e vida que
-        llevas, ayudánte a estar mas sano y vivir mejor.</p>
+      <h2 class="login__img-title">Do you really know what you're eating?</h2>
+      <p class="login__img-subtitle">With our application you can monitor and keep track of everything you consume based on your lifestyle, helping you to be healthier and live better.</p>
     </div>
   </div>
   <div class="login">
@@ -12,13 +11,13 @@
         <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm" class="login__form">
           <fieldset class="login__fieldset">
             <div class="col-12">
-              <legend class="login__legend">Regístrate en nuestra aplicación y empieza a controlar-te</legend>
+              <legend class="login__legend">Sign up for our application and start to control-t</legend>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
               <label class="login__label" for="email">
                 <input type="email" name="email" class="login__input" placeholder="Enter email" [(ngModel)]="user.email" #email="ngModel"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                <div *ngIf="email.errors?.required && email.touched">
+                <div *ngIf="email.errors?.required">
                   <p class="login__input--error">Invalid required</p>
                 </div>
               </label>
@@ -28,7 +27,7 @@
               <label class="login__label" for="password">
                 <input type="password" name="password" class="login__input" placeholder="Password" [(ngModel)]="user.password" #password="ngModel"
                   required>
-                <div *ngIf="password.errors?.required && password.touched">
+                <div *ngIf="password.errors?.required">
                   <p class="login__input--error">Password required</p>
                 </div>
               </label>

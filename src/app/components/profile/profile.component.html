@@ -6,10 +6,10 @@
         <form (ngSubmit)="onSubmitProfile(editProfile)" #editProfile="ngForm" class="profile__form">
           <fieldset class="profile__fieldset">
             <div class="col-12">
-              <legend class="profile__legend">Ingresa a continuaci&oacute;n tu informaci&oacute;n personal</legend>
+              <legend class="profile__legend">Enter your personal information below</legend>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="profile__label" for="">
+              <label class="profile__label" for="sex">
                 <p class="profile__txt">Sex</p>
                 <select name="sex" class="profile__input profile__input-select" [(ngModel)]="user.info.sex" #sex="ngModel" required>
                   <option value="women" selected>women</option>
@@ -21,12 +21,12 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="profile__label" for="">
+              <label class="profile__label" for="number">
                 <p class="profile__txt">Info for TMB</p>
                 <input type="number" placeholder="Weight" name="weight" [(ngModel)]="user.info.weight" #weight="ngModel" class="profile__input"
                   required>
                 <div *ngIf="weight.errors?.required">
-                  <p class="profile__input--error">Invalid sex</p>
+                  <p class="profile__input--error">Invalid weight</p>
                 </div>
                 <input type="number" placeholder="Stature" name="stature" [(ngModel)]="user.info.stature" #stature="ngModel" class="profile__input"
                   required>
@@ -40,7 +40,7 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="profile__label" for="">
+              <label class="profile__label" for="select">
                 <p class="profile__txt">Activity</p>
                 <select name="select" [(ngModel)]="user.info.activity" #select="ngModel" class="profile__input" required>
                   <option value="sedentary" selected>Sedentary</option>
