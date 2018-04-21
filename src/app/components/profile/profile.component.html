@@ -1,36 +1,64 @@
-<div class="row">
-  <form (ngSubmit)="onSubmitProfile(editProfile)" #editProfile="ngForm">
-    <div>
-      <div class="form-group">
-        <label for="">Sex</label>
-        <select name="sex"  class="form-control" [(ngModel)]="user.info.sex">
-          <option value="women" selected>women</option>
-          <option value="men">men</option>
-        </select>
+<div class="profile-page">
+  <div class="profile__img"></div>
+  <div class="profile">
+    <div class="row">
+      <div class="profile__card">
+        <form (ngSubmit)="onSubmitProfile(editProfile)" #editProfile="ngForm" class="profile__form">
+          <fieldset class="profile__fieldset">
+            <div class="col-12">
+              <legend class="profile__legend">Ingresa a continuaci&oacute;n tu informaci&oacute;n personal</legend>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="profile__label" for="">
+                <p class="profile__txt">Sex</p>
+                <select name="sex" class="profile__input profile__input-select" [(ngModel)]="user.info.sex" #sex="ngModel" required>
+                  <option value="women" selected>women</option>
+                  <option value="men">men</option>
+                </select>
+                <div *ngIf="sex.errors?.required">
+                  <p class="profile__input--error">Invalid sex</p>
+                </div>
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="profile__label" for="">
+                <p class="profile__txt">Info for TMB</p>
+                <input type="number" placeholder="Weight" name="weight" [(ngModel)]="user.info.weight" #weight="ngModel" class="profile__input"
+                  required>
+                <div *ngIf="weight.errors?.required">
+                  <p class="profile__input--error">Invalid sex</p>
+                </div>
+                <input type="number" placeholder="Stature" name="stature" [(ngModel)]="user.info.stature" #stature="ngModel" class="profile__input"
+                  required>
+                <div *ngIf="stature.errors?.required">
+                  <p class="profile__input--error">Invalid stature</p>
+                </div>
+                <input type="number" placeholder="Age" name="age" [(ngModel)]="user.info.age" #age="ngModel" class="profile__input" required>
+                <div *ngIf="age.errors?.required">
+                  <p class="profile__input--error">Invalid age</p>
+                </div>
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="profile__label" for="">
+                <p class="profile__txt">Activity</p>
+                <select name="select" [(ngModel)]="user.info.activity" #select="ngModel" class="profile__input" required>
+                  <option value="sedentary" selected>Sedentary</option>
+                  <option value="light">Light</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="intense">intense</option>
+                  <option value="extreme">extreme</option>
+                </select>
+                <div *ngIf="select.errors?.required">
+                  <p class="profile__input--error">Invalid select</p>
+                </div>
+              </label>
+            </div>
+          </fieldset>
+          <div class="col-12 col-sm-10 offset-sm-1">
+            <div class="profile__btn-content">
+              <button type="submit" class="profile__btn">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div>
-        <label for="">Info for TMB</label>
-        <div class="form-group">
-          <input type="number" placeholder="Weight" class="form-control" name="weight" [(ngModel)]="user.info.weight">
-        </div>
-        <div class="form-group">
-          <input type="number" placeholder="Stature" class="form-control" name="stature" [(ngModel)]="user.info.stature">
-        </div>
-        <div class="form-group">
-          <input type="number" placeholder="Age" class="form-control" name="age" [(ngModel)]="user.info.age">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="">activity</label>
-        <select name="select" class="form-control" [(ngModel)]="user.info.activity">
-          <option value="sedentary" selected>Sedentary</option>
-          <option value="light">Light</option>
-          <option value="moderate">Moderate</option>
-          <option value="intense">intense</option>
-          <option value="extreme">extreme</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-block btn-primary">Submit</button>
-  </form>
-</div>

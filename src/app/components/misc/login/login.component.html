@@ -1,44 +1,47 @@
-<div class="login">
-  <div class="row">
-    <div class="login__card">
-      <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm" class="login__form">
-        <fieldset class="login__fieldset">
-          <div class="col-12">
+<div class="login-page">
+  <div class="login__img">
+    <div class="login__img-opacity">
+      <h2 class="login__img-title">¿Sabes realmente lo que comes?</h2>
+      <p class="login__img-subtitle">Con nuestra aplicación podrás controlar y llevar un registro de todo lo que consumes en base al estilod e vida que
+        llevas, ayudánte a estar mas sano y vivir mejor.</p>
+    </div>
+  </div>
+  <div class="login">
+    <div class="row">
+      <div class="login__card">
+        <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm" class="login__form">
+          <fieldset class="login__fieldset">
+            <div class="col-12">
+              <legend class="login__legend">Regístrate en nuestra aplicación y empieza a controlar-te</legend>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
               <label class="login__label" for="email">
-                <input type="email" 
-                       name="email" 
-                       class="login__input" 
-                       placeholder="Enter email" 
-                       [(ngModel)]="user.email" 
-                       #email="ngModel"
-                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                       required>
+                <input type="email" name="email" class="login__input" placeholder="Enter email" [(ngModel)]="user.email" #email="ngModel"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                <div *ngIf="email.errors?.required && email.touched">
+                  <p class="login__input--error">Invalid required</p>
+                </div>
               </label>
-              <div *ngIf="email.errors?.required && email.touched">
-                <p>Invalid required</p>
-              </div>
-          </div>
-          <div class="col-12">
-            <label class="login__label" for="password">
-              <input type="password" 
-                     name="password" 
-                     class="login__input" 
-                     placeholder="Password" 
-                     [(ngModel)]="user.password" 
-                     #password="ngModel"
-                required>
-            </label>
-            <div *ngIf="password.errors?.required && password.touched">
-              <p>Password required</p>
+
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="login__label" for="password">
+                <input type="password" name="password" class="login__input" placeholder="Password" [(ngModel)]="user.password" #password="ngModel"
+                  required>
+                <div *ngIf="password.errors?.required && password.touched">
+                  <p class="login__input--error">Password required</p>
+                </div>
+              </label>
+
+            </div>
+          </fieldset>
+          <div class="col-12 col-sm-10 offset-sm-1">
+            <div class="login__btn-content">
+              <button type="submit" class="login__btn" [disabled]="!loginForm.valid">Submit</button>
             </div>
           </div>
-        </fieldset>
-        <div class="col-12">
-          <div class="login__btn-content">
-            <button type="submit" class="login__btn" [disabled]="!loginForm.valid">Submit</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-  </div>  
+  </div>
 </div>

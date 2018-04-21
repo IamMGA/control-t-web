@@ -1,18 +1,28 @@
-// .ng-valid[required], .ng-valid.required  {
-//     border-left: 5px solid #42A948; /* green */
-// }
-  
-// .ng-invalid:not(form)  {
-//     border-left: 5px solid #a94442; /* red */
-// }
-
 .login{
+    height: 100%;
+    &__page{
 
-    background-size: 100%;
+    }
+    &__img{
+        background: url("assets/imagenes/mediterranean.jpg") center top no-repeat;
+        background-size: cover; 
+        padding: 40px 30px;
+        margin: 0 -15px;
+        &-opacity{
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius:5px; 
+        }
+        &-title,&-subtitle{
+            color: white;
+        }
+    }
     &__card{
         width: 100%;
-        opacity: 0.7;
         background: white;
+        padding: 40px 0;
+        height: 100%;
+
     }
     &__form{
         width: 100%;
@@ -26,14 +36,16 @@
         border: 1px solid grey;
         margin-top: 20px;
         padding: 10px;
-        -webkit-border-top-right-radius: 5px;
-        -webkit-border-bottom-right-radius: 5px;
-        -moz-border-radius-topright: 5px;
-        -moz-border-radius-bottomright: 5px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
+
+        border-radius: 5px;
         width: 100%;
-        font-family: "Nunito";
+        font-family: "arial";
+        &--error{
+            text-align: left;
+            color: red;
+            margin-bottom:-8px; 
+        }
+
     }
     &__btn{
         width: 50%;
@@ -49,4 +61,30 @@
             text-align: center;
         }
     }
+
 }
+
+@media (min-width: 768px){
+    .login{
+        &__img{
+            min-height: 230px;
+        }
+        &__card{
+            margin: 30px;
+        }
+        &__label{
+            max-width: 500px;
+            width: 100%;
+        }
+        &__btn{
+            max-width: 250px;
+        }
+        &__img{
+            &-opacity{
+                padding: 30px;
+            }
+        }
+    }
+}
+@media (min-width: 992px){}
+
