@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { StatsComponent } from './components/stats/stats.component';
@@ -9,7 +10,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/misc/login/login.component';
 
 export const routes: Routes = [
-        { path: '', component: LoginComponent },
+        { path: '',   redirectTo: '/login', pathMatch: 'full' },
         { path: 'login', component: LoginComponent },
         { path: 'signup', component: SignupComponent },
         {
@@ -31,5 +32,6 @@ export const routes: Routes = [
                 path: 'profile',
                 canActivate: [IsAuthenticatedGuard],
                 component: ProfileComponent
-        }
+        },
+        { path: '**', component: PageNotFoundComponent }
 ];

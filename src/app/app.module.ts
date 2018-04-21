@@ -22,6 +22,7 @@ import { StatsComponent } from './components/stats/stats.component';
 import { ChartModule } from 'primeng/chart';
 import { PercentPipe } from './pipes/percent.pipe';
 import { ProfileComponent } from './components/profile/profile.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     AddIntakesComponent,
     StatsComponent,
     PercentPipe,
-    ProfileComponent
+    ProfileComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
