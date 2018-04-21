@@ -12,25 +12,25 @@
       </button>
       <div class="navbar__btn-list collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li *ngIf="!user" class="nav-item active">
+          <li *ngIf="!user" class="nav-item active"  data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/login']" class="nav-link" href="#">Login</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/signup']" class="nav-link" href="#">SignUp</a>
           </li>
-          <li class="nav-item">
-            <a [routerLink]="['/meals']" class="nav-link" href="#">Meals</a>
+          <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
+            <a [routerLink]="['/meals']" class="nav-link"  href="#">Meals</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/intakes']" class="nav-link" href="#">Intakes</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/stats']" class="nav-link" href="#">Stats</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/profile']" class="nav-link" href="#">Profile</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
             <a class="nav-link navbar__profile-link" id="navbarSupportedContent" (click)="onClickLogout()" *ngIf="user">Logout</a>
           </li>
         </ul>

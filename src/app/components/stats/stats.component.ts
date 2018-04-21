@@ -22,6 +22,7 @@ export class StatsComponent implements OnInit {
   tCaffeine: number = 0;
   data: any = {};
   options: any = {};
+  tCalories: number = 0;
 
   constructor(
     private sessionService: SessionService,
@@ -44,6 +45,7 @@ export class StatsComponent implements OnInit {
           this.tSugar += elem.meal.specNutritions.others.sugar;
           this.tCholesterol += elem.meal.specNutritions.others.cholesterol;
           this.tCaffeine += elem.meal.specNutritions.others.caffeine;
+          this.tCalories += elem.meal.specNutritions.calories
         })
         this.updateData();
       })
@@ -69,6 +71,7 @@ export class StatsComponent implements OnInit {
     this.tFat -= this.intakes[elem].meal.specNutritions.fat;
     this.tCarbs -= this.intakes[elem].meal.specNutritions.carbs;
     this.tProteins -= this.intakes[elem].meal.specNutritions.protein;
+    this.tCalories -= this.intakes[elem].meal.specNutritions.calories;
     this.data.datasets[0].data = [this.tCarbs, this.tFat, this.tProteins];
   }
 
