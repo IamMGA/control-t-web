@@ -6,10 +6,10 @@
         <form (ngSubmit)="onSubmitMeal(mealCreateForm)" #mealCreateForm="ngForm" class="meal__form">
           <fieldset class="meal__fieldset">
             <div class="col-12">
-              <legend class="meal__legend">Ingresa a continuaci&oacute;n los valores nutricionales de tu comida</legend>
+              <legend class="meal__legend">Enter below the nutritional values of your meal</legend>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
+              <label class="meal__label" for="name">
                 <input type="text" placeholder="Name" name="name" [(ngModel)]="meal.name" #name="ngModel" class="meal__input" required>
                 <div *ngIf="name.errors?.required">
                   <p class="meal__input--error">Invalid name</p>
@@ -17,7 +17,7 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
+              <label class="meal__label" for="servingSize">
                 <input type="text" placeholder="Serving size" name="servingSize" [(ngModel)]="meal.specNutritions.servingSize" #specNutritions="ngModel"
                   class="meal__input" required>
                 <div *ngIf="specNutritions.errors?.required">
@@ -26,7 +26,7 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
+              <label class="meal__label" for="calories">
                 <input type="text" placeholder="Calories" name="calories" [(ngModel)]="meal.specNutritions.calories" #calories="ngModel"
                   class="meal__input" required>
                 <div *ngIf="calories.errors?.required">
@@ -35,7 +35,7 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
+              <label class="meal__label" for="fat">
                 <input type="text" placeholder="Fat" name="fat" [(ngModel)]="meal.specNutritions.fat" #fat="ngModel" class="meal__input"
                   required>
                 <div *ngIf="fat.errors?.required">
@@ -44,7 +44,7 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
+              <label class="meal__label" for="carbs">
                 <input type="text" placeholder="Carbs" name="carbs" [(ngModel)]="meal.specNutritions.carbs" #carbs="ngModel" class="meal__input"
                   required>
                 <div *ngIf="carbs.errors?.required">
@@ -53,23 +53,35 @@
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
-                <input type="text" placeholder="Protein" name="protein" [(ngModel)]="meal.specNutritions.protein" class="meal__input" required>
+              <label class="meal__label" for="protein">
+                <input type="text" placeholder="Protein" name="protein" [(ngModel)]="meal.specNutritions.protein" class="meal__input" #protein="ngModel" required>
+                <div *ngIf="protein.errors?.required">
+                  <p class="meal__input--error">Invalid carbs</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
-                <input type="text" placeholder="Sugar" name="sugar" [(ngModel)]="meal.specNutritions.others.sugar" class="meal__input">
+              <label class="meal__label" for="sugar">
+                <input type="text" placeholder="Sugar" name="sugar" [(ngModel)]="meal.specNutritions.others.sugar" class="meal__input" #sugar="ngModel" required>
+                <div *ngIf="sugar.errors?.required">
+                  <p class="meal__input--error">Invalid carbs</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
-                <input type="text" placeholder="Cholesterol" name="cholesterol" [(ngModel)]="meal.specNutritions.others.cholesterol" class="meal__input">
+              <label class="meal__label" for="cholesterol">
+                <input type="text" placeholder="Cholesterol" name="cholesterol" [(ngModel)]="meal.specNutritions.others.cholesterol" class="meal__input"  #cholesterol="ngModel" required>
+                <div *ngIf="cholesterol.errors?.required">
+                  <p class="meal__input--error">Invalid carbs</p>
+                </div>
               </label>
             </div>
             <div class="col-12 col-sm-10 offset-sm-1">
-              <label class="meal__label" for="">
-                <input type="text" placeholder="Caffeine" name="caffeine" [(ngModel)]="meal.specNutritions.others.caffeine" class="meal__input">
+              <label class="meal__label" for="caffeine">
+                <input type="text" placeholder="Caffeine" name="caffeine" [(ngModel)]="meal.specNutritions.others.caffeine" class="meal__input" #caffeine="ngModel" required>
+                <div *ngIf="caffeine.errors?.required">
+                  <p class="meal__input--error">Invalid carbs</p>
+                </div>
               </label>
             </div>
           </fieldset>
