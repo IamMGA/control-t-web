@@ -9,19 +9,27 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/misc/login/login.component';
 
 export const routes: Routes = [
-    { path: '**', redirectTo: 'login', pathMatch: 'full'},
-    { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent },
-    { path: 'meals',
-            canActivate: [IsAuthenticatedGuard], 
-            component:  MealCreateComponent },
-    { path: 'intakes',
-            canActivate: [IsAuthenticatedGuard], 
-            component: AddIntakesComponent },
-    { path: 'stats',
-            canActivate: [IsAuthenticatedGuard], 
-            component: StatsComponent },
-    { path: 'profile',
-            canActivate: [IsAuthenticatedGuard], 
-            component: ProfileComponent }
+        { path: '**', component: LoginComponent },
+        { path: 'login', component: LoginComponent },
+        { path: 'signup', component: SignupComponent },
+        {
+                path: 'meals',
+                canActivate: [IsAuthenticatedGuard],
+                component: MealCreateComponent
+        },
+        {
+                path: 'intakes',
+                canActivate: [IsAuthenticatedGuard],
+                component: AddIntakesComponent
+        },
+        {
+                path: 'stats',
+                canActivate: [IsAuthenticatedGuard],
+                component: StatsComponent
+        },
+        {
+                path: 'profile',
+                canActivate: [IsAuthenticatedGuard],
+                component: ProfileComponent
+        }
 ];
