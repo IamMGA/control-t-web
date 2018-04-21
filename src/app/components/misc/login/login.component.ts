@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.sessionService.authenticate(this.user).subscribe(
       (user) => {
         loginForm.reset();
-        this.router.navigate(['/']);
+        this.router.navigate(['/stats']);
       },
       (error) => {
         this.apiError = error.message;
