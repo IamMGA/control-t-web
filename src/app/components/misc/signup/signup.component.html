@@ -1,45 +1,73 @@
-<div class="row">
-  <form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm">
-    <div>
-      <div class="form-group">
-        <input type="text" placeholder="Nickname" name="nickname" class="form-control" [(ngModel)]="user.nickname">
-      </div>
-      <div class="form-group">
-        <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email">
-      </div>
-      <div class="form-group">
-        <input type="password" placeholder="Password" name="password" class="form-control" [(ngModel)]="user.password">
-      </div>
-      <div class="form-group">
-        <label for="">Sex</label>
-        <select name="sex"  class="form-control" [(ngModel)]="user.info.sex">
-          <option value="women" selected>women</option>
-          <option value="men">men</option>
-        </select>
-      </div>
-      <div>
-        <label for="">Info for TMB</label>
-        <div class="form-group">
-          <input type="number" placeholder="Weight" class="form-control" name="weight" [(ngModel)]="user.info.weight">
-        </div>
-        <div class="form-group">
-          <input type="number" placeholder="Stature" class="form-control" name="stature" [(ngModel)]="user.info.stature">
-        </div>
-        <div class="form-group">
-          <input type="number" placeholder="Age" class="form-control" name="age" [(ngModel)]="user.info.age">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="">activity</label>
-        <select name="select" class="form-control" [(ngModel)]="user.info.activity">
-          <option value="sedentary" selected>Sedentary</option>
-          <option value="light">Light</option>
-          <option value="moderate">Moderate</option>
-          <option value="intense">intense</option>
-          <option value="extreme">extreme</option>
-        </select>
+<div class="signup-page">
+  <div class="signup__img"></div>
+  <div class="signup">
+    <div class="row">
+      <div class="signup__card">
+        <form (ngSubmit)="onSubmitSignup(signupForm)" #signupForm="ngForm" class="signup__form">
+          <fieldset class="signup__fieldset">
+            <div class="col-12">
+              <legend class="signup__legend">Ingresa a continuaci&oacute;n tus datos personales</legend>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label" for="">
+                <input type="text" placeholder="Nickname" name="nickname" class="signup__input" [(ngModel)]="user.nickname">
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label" for="">
+                <input type="text" placeholder="Email" name="email" class="signup__input" [(ngModel)]="user.email">
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label" for="">
+                <input type="password" placeholder="Password" name="password" class="signup__input" [(ngModel)]="user.password">
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label"  for="">
+                <p class="signup__txt">Sex</p>
+                <select name="sex" class="signup__input signup__input-select" [(ngModel)]="user.info.sex">
+                  <option value="women" selected>women</option>
+                  <option value="men">men</option>
+                </select>
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label"  for="">
+                <p class="signup__txt">Info for TMB</p>
+                <input type="number" placeholder="Weight" class="signup__input" name="weight" [(ngModel)]="user.info.weight">
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label"  for="">
+                <input type="number" placeholder="Stature" class="signup__input" name="stature" [(ngModel)]="user.info.stature">
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label"  for="">
+                <input type="number" placeholder="Age" class="signup__input" name="age" [(ngModel)]="user.info.age">
+              </label>
+            </div>
+            <div class="col-12 col-sm-10 offset-sm-1">
+              <label class="signup__label"  for="">
+                <p class="signup__txt">Activity</p>
+                <select name="select" class="signup__input signup__input-select" [(ngModel)]="user.info.activity">
+                  <option value="sedentary" selected>Sedentary</option>
+                  <option value="light">Light</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="intense">intense</option>
+                  <option value="extreme">extreme</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+          <div class="col-12">
+            <div class="signup__link-content">
+              <button type="submit" class="signup__btn">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-    <button type="submit" class="btn btn-block btn-primary">Submit</button>
-  </form>
+  </div>
 </div>

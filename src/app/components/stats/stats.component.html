@@ -1,32 +1,51 @@
-<div>
-  <h2>Daily calories needed to maintain weight</h2>
-  <p>{{ user.calories }}</p>
-</div>
-
-
-
-<div *ngIf="intakes.length > 0" class="stats__chart">
-  <p-chart type="pie" [data]="data" [options]="options"></p-chart>
-  <ul class="stats__list stats__list-content stats__list-content--chart">
-    <li class="stats__list-item stats__list-item--chartdata">fat: {{tFat}}</li>
-    <li class="stats__list-item stats__list-item--chartdata">carbs: {{tCarbs}}</li>
-    <li class="stats__list-item stats__list-item--chartdata">fat: {{tProteins}}</li>
-  </ul>
-  <ul class="stats__list stats__list-content stats__list-content--chart">
-    <li class="stats__list-item stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tFat }}</li>
-    <li class="stats__list-item stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tCarbs }}</li>
-    <li class="stats__list-item stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tProteins }}</li>
-  </ul>
-</div>
-
-<h3 *ngIf="intakes.length > 0" class="stats__title">Diray intakes</h3>
-<ul class="stats__list">
-  <div class="stats__list-content stats__list-content--intakes" *ngFor="let intake of intakes; let i = index">
-    <li class="stats__list-item"> {{ intake.meal.name }} </li>
-    <li class="stats__list-item">
-      <button (click)="removeIntake(i)">
-        <i class="fa fa-trash-o"></i>
-      </button>
-    </li>
-  </div>
-</ul>
+<div class="stats-page">
+  <div class="stats__img"></div>
+  <div class="stats">
+    <div class="row">
+      <div class="stats__card">
+        <div class="col-12">
+          <div class="stats__box">
+            <h2 class="stats__title">Daily calories needed to maintain weight</h2>
+            <p class="stats__txt">{{ user.calories }}</p>
+            <p class="stats__txt stats__txt--border">1200 calorías pendientes</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div *ngIf="intakes.length > 0" class="stats__chart">
+            <p-chart type="pie" [data]="data" [options]="options" [responsive]="true"></p-chart>
+            <ul class="stats__list stats__list-content stats__list-content--chart">
+              <li class="stats__list-item">
+                <p class="stats__list-item--txt">Fat: </p>
+                <p class="stats__list-item--subtxt stats__list-item--subtxt--dark">{{tFat}}</p>
+                <p class="stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tFat }}</p>
+              </li>
+              <li class="stats__list-item">
+                <p class="stats__list-item--txt">Carbs: </p>
+                <p class="stats__list-item--subtxt stats__list-item--subtxt--middle">{{tCarbs}}</p>
+                <p class="stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tCarbs }}</p>
+              </li>
+              <li class="stats__list-item">
+                <p class="stats__list-item--txt">Proteins:</p>
+                <p class="stats__list-item--subtxt  stats__list-item--subtxt--light">{{tProteins}}</p>
+                <p class="stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tProteins }}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12">
+          <h3 *ngIf="intakes.length > 0" class="stats__title">Diray intakes</h3>
+        </div>
+        <div class="col-12">
+          <ul class="stats__list">
+            <div class="stats__list-content stats__list-content--intakes" *ngFor="let intake of intakes; let i = index">
+              <li class="stats__list-elements">
+                <p class="stats__list-elements_txt">{{ intake.meal.name }}</p>
+                <button class="stats__list-elements_btn" (click)="removeIntake(i)">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
