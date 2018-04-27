@@ -15,7 +15,7 @@
           <li *ngIf="!user" class="nav-item active"  data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/login']" class="nav-link" href="#">Login</a>
           </li>
-          <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <li *ngIf="!user" class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
             <a [routerLink]="['/signup']" class="nav-link" href="#">SignUp</a>
           </li>
           <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">

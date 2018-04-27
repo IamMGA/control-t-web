@@ -6,8 +6,8 @@
         <div class="col-12">
           <div class="stats__box">
             <h2 class="stats__title">Daily calories needed to maintain weight</h2>
-            <p class="stats__txt">{{ user.calories }}</p>
-            <p class="stats__txt stats__txt--border">{{ tCalories }} Consumed calories </p>
+            <p class="stats__txt">{{ user.calories | number: '1.0-2' }}</p>
+            <p class="stats__txt stats__txt--border">{{ tCalories | number: '1.0-2' }} Consumed calories </p>
           </div>
         </div>
         <div class="col-12">
