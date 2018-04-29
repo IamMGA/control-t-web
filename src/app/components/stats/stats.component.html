@@ -16,17 +16,17 @@
             <ul class="stats__list stats__list-content stats__list-content--chart">
               <li class="stats__list-item">
                 <p class="stats__list-item--txt">Fat: </p>
-                <p class="stats__list-item--subtxt stats__list-item--subtxt--dark">{{tFat}}</p>
+                <p class="stats__list-item--subtxt stats__list-item--subtxt--dark">{{tFat | number: '1.0-2' }}</p>
                 <p class="stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tFat }}</p>
               </li>
               <li class="stats__list-item">
                 <p class="stats__list-item--txt">Carbs: </p>
-                <p class="stats__list-item--subtxt stats__list-item--subtxt--middle">{{tCarbs}}</p>
+                <p class="stats__list-item--subtxt stats__list-item--subtxt--middle">{{tCarbs | number: '1.0-2' }}</p>
                 <p class="stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tCarbs }}</p>
               </li>
               <li class="stats__list-item">
                 <p class="stats__list-item--txt">Proteins:</p>
-                <p class="stats__list-item--subtxt  stats__list-item--subtxt--light">{{tProteins}}</p>
+                <p class="stats__list-item--subtxt  stats__list-item--subtxt--light">{{tProteins | number: '1.0-2' }}</p>
                 <p class="stats__list-item--percent">{{ tFat + tCarbs + tProteins | percent: tProteins }}</p>
               </li>
             </ul>
