@@ -34,8 +34,6 @@ export class AddIntakesComponent implements OnInit {
 
   addMeal(selectedMeal) {
     this.user = this.sessionService.getUser();
-    console.log(this.user)
-    console.log(this.intakes);
     this.intakesService.addIntake({ meal: selectedMeal.id }).subscribe(
       (meal) => {
         this.intakes.push(meal);

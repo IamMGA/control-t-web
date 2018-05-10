@@ -32,7 +32,6 @@ export class StatsComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.sessionService.getUser();
-    console.log(this.user)
     // this.intakesService.intakeList()
     //   .subscribe((intakes) => this.intakes = intakes)
     this.intakesService.intakeList()
@@ -49,10 +48,6 @@ export class StatsComponent implements OnInit {
         })
         this.updateData();
       })
-  }
-
-  dale() {
-    console.log(this.intakes);
   }
 
   removeIntake(i) {

@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   onSubmitLogin(loginForm) {
-    console.log(loginForm)
     this.sessionService.authenticate(this.user).subscribe(
       (user) => {
         loginForm.reset();
