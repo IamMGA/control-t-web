@@ -17,8 +17,8 @@
               <label class="login__label" for="email">
                 <input type="email" name="email" class="login__input" placeholder="Enter email" [(ngModel)]="user.email" #email="ngModel"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                <div *ngIf="email.errors?.required">
-                  <p class="login__input--error">Invalid required</p>
+                <div *ngIf="email.errors?.required && email.touched">
+                  <p class="login__input--error">Email required</p>
                 </div>
               </label>
 
@@ -27,7 +27,7 @@
               <label class="login__label" for="password">
                 <input type="password" name="password" class="login__input" placeholder="Password" [(ngModel)]="user.password" #password="ngModel"
                   required>
-                <div *ngIf="password.errors?.required">
+                <div *ngIf="password.errors?.required && password.touched">
                   <p class="login__input--error">Password required</p>
                 </div>
               </label>
